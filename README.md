@@ -1,6 +1,6 @@
 # Pizza Shop Analysis
 ## Introduction
-In this project, I set out to investigate the performance of a fictitious pizza chain using mySQL and Tableau. Analysis is performed on a year's worth of sales data as well as  products data, to answer the following business questions: 
+In this project, I set out to investigate the performance of a fictitious pizza chain using mySQL and Tableau. Analysis was performed on a year's worth of sales data as well as  products data, to answer the following business questions: 
 
   1. How many customers do we have each day? Are there any peak hours?
   2. How many pizzas are typically in an order? Do we have any bestsellers?
