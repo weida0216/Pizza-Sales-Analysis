@@ -26,7 +26,7 @@ However, due to the narrow scope of the above query, not much business insights 
   3. Hours of the day data
 
 ### Monthly data
-To investigate if there are any trends of seasonality of use the below query to group the number of orders by the month of the year:
+To investigate if there are any trends of seasonality the below query was used: 
 
 ```
 SELECT COUNT(OrderID) as num_orders, MONTH(date) AS month
@@ -65,7 +65,7 @@ Next, I used Tableau to plot the below visualisations using the results above.
 As seen from the above visualisations, the month of July generated both the highest amount of orders as well as the highest revenue in the year, and the month October generated the lowest for both. However, despite the disparity in sales throughout the year, the difference between the month with the highest amount of order/revenue and the month with the lowest is only less than 2% of the total order/revenue. Therefore, I can draw the conclusion that there is insignificant/weak seasonality throughout the year. 
 
 ### Day of the week data
-To investigate which particular day of the week generated the highest sales, I used the below query: 
+To investigate which particular day of the week generated the highest sales, the below query was used: 
 
 ```
 SELECT DAYOFWEEK(date) as Day, COUNT(OrderID) as num_orders
@@ -105,3 +105,43 @@ To better identify possible trends, Tableau was used to plot the following visua
 
 As observed above, there are clear trends in consumption patterns throughout the week, with sales ramping up steadily from Sundays and peaking on Fridays. 
 The days of the week with the highest amount of sales are Thursday, Friday and Saturday. Therefore, the business can perhaps hold promotional events during those days as footflow would be the highest. Furthermore, more manpower should also be allocated on those days to ensure that staff are not overwhelmed. 
+
+### Hourly Data
+To identify peak hours of the day, the following query was used: 
+
+```
+SELECT  HOUR(Time) as Hour, COUNT(OrderID) as num_orders
+FROM Orders
+GROUP BY HOUR(Time)
+ORDER BY COUNT(OrderID) DESC;
+```
+
+Results obtained:
+
+<img width="115" alt="Screenshot 2022-12-20 at 4 32 58 PM" src="https://user-images.githubusercontent.com/79434994/208620344-74ede58b-5ef3-4d7a-aa13-b2a606a13343.png">
+
+The same thing was done for revenue: 
+
+```
+SELECT HOUR(Time) AS Hour, SUM(p.Price * (od.Quantity)) as Revenue
+FROM OrderDetails AS od
+INNER JOIN Pizzas as p 
+ON od.PizzaID = P.PizzaID
+INNER JOIN Orders AS o
+ON od.OrderID = o.OrderID
+GROUP BY HOUR(Time)
+ORDER BY SUM(p.Price * (od.Quantity)) DESC;
+```
+
+Results obtained: 
+
+<img width="103" alt="Screenshot 2022-12-20 at 4 34 55 PM" src="https://user-images.githubusercontent.com/79434994/208620837-54ba28a2-a6fc-4925-88a9-053f1bbb6c47.png">
+
+To better identify peak hours, Tableau was used to plot the following visualisations: 
+
+<img width="500" alt="Screenshot 2022-12-20 at 4 44 32 PM" src="https://user-images.githubusercontent.com/79434994/208622931-f2edf3ee-0d11-46e6-abe9-daae86aeb832.png">
+
+<img width="500" alt="Screenshot 2022-12-20 at 4 44 45 PM" src="https://user-images.githubusercontent.com/79434994/208622980-291d466b-279e-4247-8478-bb39202a793e.png">
+
+As observed above, there are two distinct cluster of peak hours, the lunch peak and the dinner peak. The lunch peak starts at around 12pm and ends at around 2pm whereas the dinner peak starts at around 4pm and 8pm. Identifying peak hours is important for a F&B business because it allows the business to properly staff and prepare for high levels of customer demand during those times. This can help ensure that customers receive efficient service and the business is able to maximize profits.
+
