@@ -96,9 +96,12 @@ Results obtained:
 
 <img width="102" alt="Screenshot 2022-12-20 at 3 27 19 PM" src="https://user-images.githubusercontent.com/79434994/208608027-b7a1a5a5-5423-41cf-95a5-c433df9a3497.png">
 
-To better identify any possible trend, Tableau was used to plot the following visualisations: 
+To better identify possible trends, Tableau was used to plot the following visualisations: 
 
 <img width="500" alt="Screenshot 2022-12-20 at 4 16 01 PM" src="https://user-images.githubusercontent.com/79434994/208617023-e7780ee5-512a-4ef2-910e-8840eb3fbebb.png">
 
 
 <img width="500" alt="Screenshot 2022-12-20 at 4 16 21 PM" src="https://user-images.githubusercontent.com/79434994/208617085-975ae26d-8597-4aef-a841-c123aef2df82.png">
+
+As observed above, there are clear trends in consumption patterns throughout the week, with sales ramping up steadily from Sundays and peaking on Fridays. 
+The days of the week with the highest amount of sales are Thursday, Friday and Saturday. Therefore, the business can perhaps hold promotional events during those days as footflow would be the highest. Furthermore, more manpower should also be allocated on those days to ensure that staff are not overwhelmed. 
