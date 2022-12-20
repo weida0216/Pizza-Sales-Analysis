@@ -11,7 +11,7 @@ In this project, I set out to investigate the performance of a fictitious pizza 
 Understanding the number of customers a business serves on a daily basis and identifying any peak hours can be important for several reasons. It can help with staffing and resource allocation, allow for better planning and forecasting, and provide insight into the overall health and success of the business. In this section, we will explore ways to measure and analyze the number of customers a business serves on a daily basis, as well as identify any peak hours that may exist. By understanding these metrics, businesses can make informed decisions about how to best serve their customers and optimize their operations.
 
 
-I first investigated the amount of orders received each day through the year using the following query: 
+I first investigated the amount of orders received each day throughout the year using the following query: 
 
 ```
 SELECT COUNT(OrderID) as num_orders, date
@@ -19,13 +19,13 @@ FROM Orders
 GROUP BY date
 ORDER BY COUNT(OrderID) DESC;
 ```
-However, due to the narrow scope of the above query, not much business insights can be obtained from it. There, I decided to disect my analysis into the following dimensions: 
+However, due to the narrow scope of the above query, limited business insights can be obtained from it. Therefore, I decided to disect my analysis into the following dimensions: 
 
-  1. Monthly data
-  2. Day of the week data
-  3. Hours of the day data
+  1. Seasonality
+  2. Weekly trend
+  3. Peak hour identification
 
-### Monthly data
+### Seasonality
 To investigate if there are any trends of seasonality the below query was used: 
 
 ```
@@ -64,7 +64,7 @@ Next, I used Tableau to plot the below visualisations using the results above.
 
 As seen from the above visualisations, the month of July generated both the highest amount of orders as well as the highest revenue in the year, and the month October generated the lowest for both. However, despite the disparity in sales throughout the year, the difference between the month with the highest amount of order/revenue and the month with the lowest is only less than 2% of the total order/revenue. Therefore, I can draw the conclusion that there is insignificant/weak seasonality throughout the year. 
 
-### Day of the week data
+### Weekly trend
 To investigate which particular day of the week generated the highest sales, the below query was used: 
 
 ```
@@ -106,7 +106,7 @@ To better identify possible trends, Tableau was used to plot the following visua
 As observed above, there are clear trends in consumption patterns throughout the week, with sales ramping up steadily from Sundays and peaking on Fridays. 
 The days of the week with the highest amount of sales are Thursday, Friday and Saturday. Therefore, the business can perhaps hold promotional events during those days as footflow would be the highest. Furthermore, more manpower should also be allocated on those days to ensure that staff are not overwhelmed. 
 
-### Hourly Data
+### Peak hour identification
 To identify peak hours of the day, the following query was used: 
 
 ```
