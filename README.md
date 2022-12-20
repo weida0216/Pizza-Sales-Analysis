@@ -145,4 +145,4 @@ To better identify peak hours, Tableau was used to plot the following visualisat
 
 As observed above, there are two distinct cluster of peak hours, the lunch peak and the dinner peak. The lunch peak starts at around 12pm and ends at around 2pm whereas the dinner peak starts at around 4pm and 8pm. Identifying peak hours is important for a F&B business because it allows the business to properly staff and prepare for high levels of customer demand during those times. This can help ensure that customers receive efficient service and the business is able to maximize profits.
 
-### Product Analysis
+## Product Analysis
