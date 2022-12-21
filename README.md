@@ -247,4 +247,16 @@ Results obtained:
 
 <img width="341" alt="Screenshot 2022-12-22 at 12 36 45 AM" src="https://user-images.githubusercontent.com/79434994/208957225-c95c02f0-1f22-4995-8b31-650a6c608a98.png">
 
-This shows that on average, 204 of the most popular pizza, The Classic Deluxe Pizza, are sold per month whereas only 41 of the least popular pizza, The Brie Carre Pizza, are sold. That is a huge disparity of around 400%. For reference, based on the data presented in the customer analysis section, the pizza restaurant sells around 1780 total pizzas per month. This means that the most popular pizza would make up around 11.5% of total sales and the least popular pizza would only make up 2.3% of total sales. 
+This shows that on average, 204 of the most popular pizza, The Classic Deluxe Pizza, were sold per month whereas only 41 of the least popular pizza, The Brie Carre Pizza, were sold. That is a huge disparity of around 400%. For reference, based on the data presented in the customer analysis section, the pizza restaurant sells on average 1780 total pizzas per month. This means that the most popular pizza would make up around 11.5% of total quantity sold and the least popular pizza would only make up 2.3%. 
+
+To confirm our findings, I performed the same investigation based on revenue. The query below ranks each pizza based on their contribution to total annual revenue: 
+
+```
+SELECT Name, ROUND(SUM(Quantity*Price),0) AS TotalRevenue
+FROM OrderDetails AS od
+NATURAL JOIN Pizzas
+NATURAL JOIN PizzaTypes
+GROUP BY Name
+ORDER BY SUM(Quantity*Price) DESC;
+```
+
