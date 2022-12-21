@@ -146,3 +146,54 @@ To better identify peak hours, Tableau was used to plot the following visualisat
 As observed above, there are two distinct cluster of peak hours, the lunch peak and the dinner peak. The lunch peak starts at around 12pm and ends at around 2pm whereas the dinner peak starts at around 4pm and 8pm. Identifying peak hours is important for a F&B business because it allows the business to properly staff and prepare for high levels of customer demand during those times. This can help ensure that customers receive efficient service and the business is able to maximize profits.
 
 ## Product Analysis
+
+The next section of this report will be dedicated to the analysis of the various products offered by the shop. Specifically, I will look to answer the following questions: 
+
+  1. How many pizzas are there typically in an order?
+  2. Which size of pizza is the most popular? 
+  3. Which pizza is the most popular and which pizza is the least popular?
+
+By understanding the patterns and preferences of customers when it comes to pizza orders, we can make informed decisions on menu planning, pricing, and marketing strategies to better serve our customers and improve the financial performance of our business.
+
+### Typical Order of Pizza
+
+Identifying how many pizzas customers typically order and what size of pizzas they typically order is important for a pizza business because it allows the business to understand the demand for their products and make informed decisions on pricing, inventory management, and marketing strategies. For example, if the business sees that customers typically order one large pizza per transaction, they may consider adjusting their pricing to reflect this demand and potentially increase their profit margins. On the other hand, if they see that customers typically order multiple small pizzas, they may consider offering discounts or promotions to encourage larger orders. Understanding these patterns can also inform the business's production and staffing needs, as they will have a better understanding of how many pizzas they need to prepare on a daily basis. Additionally, understanding the size of pizzas that are most popular can inform the business's menu planning decisions, as they can prioritize offering a range of sizes that meet customer demand.
+
+The following query was used to investigate how many pizzas do a customer typically order:
+
+```
+WITH OrderQuant AS (
+SELECT OrderID, SUM(Quantity) AS TotalQuant
+FROM OrderDetails
+NATURAL JOIN Orders
+GROUP BY OrderID)
+SELECT AVG(TotalQuant) AS AverageQuant
+FROM OrderQuant;
+```
+Result obatained: 
+
+<img width="86" alt="Screenshot 2022-12-21 at 9 08 21 PM" src="https://user-images.githubusercontent.com/79434994/208912718-2b723f35-0a9b-4e06-9e14-e5b42ac4df2d.png">
+
+Based on the result, a customer typically orders around 2 pizzas. 
+
+Next, I used the following query to investigate which size of pizza do customers usually order:
+
+```
+SELECT AVG(TotalSize) AS AvgSize
+FROM(
+SELECT OrderID,
+CASE
+  WHEN RIGHT(PizzaID, 1) = 's' THEN 1
+  WHEN RIGHT(PizzaID, 1) = 'm' THEN 2
+  WHEN RIGHT(PizzaID, 1) = 'l' THEN 3
+  END AS TotalSize
+FROM OrderDetails) AS Sizing;
+```
+In the query above, I identified the sizes of the pizzas from the suffix of the PizzaID and assigned a number to each category. I then found the average  of the all the sizes to attain the result below: 
+
+<img width="83" alt="Screenshot 2022-12-21 at 9 18 03 PM" src="https://user-images.githubusercontent.com/79434994/208914394-55e91fb2-1ab0-4945-95c7-0f03021d1f3a.png">
+
+An average size of 2.102 means that on average, customers typically order medium pizzas. 
+
+
+
