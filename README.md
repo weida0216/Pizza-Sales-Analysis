@@ -196,4 +196,56 @@ In the query above, I identified the sizes of the pizzas from the suffix of the 
 An average size of 2.102 means that on average, customers typically order medium pizzas. 
 
 
+### Pizza Popularity
+
+Identifying which pizzas are the best and worst sellers is important for a pizza business for several reasons. Understanding which pizzas are the most popular among customers can help the business optimize their menu and inventory management. For example, if a particular pizza is a best seller, the business may choose to keep a larger stock of that pizza's ingredients on hand to ensure they can meet customer demand. On the other hand, if a pizza is a worst seller, the business may choose to reduce the amount of that pizza's ingredients they keep on hand or remove it from the menu altogether to reduce waste and save costs. In addition to optimizing inventory and menu management, identifying best and worst sellers can inform the business's marketing and promotional strategies. For example, if a particular pizza is a best seller, the business may choose to highlight it in their marketing efforts to drive sales and increase customer loyalty. This could involve featuring the pizza prominently on the menu, offering special deals or discounts on the pizza, or promoting it through social media and other channels.
+
+The Pizza restaurant offers 4 different categories of pizzas (classic, chicken, supreme and vegetarian). I am first interested in finding which category is the most popular. The following query was used to rank the categories in terms of quantity sold over the year:
+
+```
+SELECT Type, SUM(Quantity) AS TotalQuantity
+FROM OrderDetails AS od
+NATURAL JOIN Pizzas
+NATURAL JOIN PizzaTypes
+GROUP BY Type
+ORDER BY SUM(Quantity) DESC;
+```
+
+Results obtained: 
+
+<img width="151" alt="Screenshot 2022-12-22 at 12 25 23 AM" src="https://user-images.githubusercontent.com/79434994/208954676-e5d5caf1-13f7-4753-b70b-bf62ae25f78f.png">
+
+Based on the result, it is clear that the most popular category of pizza is Classic and the least popular is Chicken. Hence with this information, the business can perhaps release more products other the Classic category. 
+
+After looking into the various categories of pizza, I will now into the popularity of each specific pizzas. The following query was written to rank the pizzas in terms of quantity sold over the year: 
+
+```
+SELECT Name, SUM(Quantity) AS TotalQuantity
+FROM OrderDetails AS od
+NATURAL JOIN Pizzas
+NATURAL JOIN PizzaTypes
+GROUP BY Name
+ORDER BY SUM(Quantity) DESC;
+```
+
+Results obtained: 
+
+<img width="336" alt="Screenshot 2022-12-22 at 12 30 19 AM" src="https://user-images.githubusercontent.com/79434994/208955720-0211c193-3a22-48d4-a2ea-46ca5310c72b.png">
+
+Based on the result, it is clear that there is huge disparity between the most popular pizza and the least popular pizza. To put things into better persepective, the following query was written to show the average amount each pizza sold per month: 
+
+```
+SELECT Name, ROUND(SUM(Quantity)/12, 0) AS TotalQuantity
+FROM OrderDetails AS od
+NATURAL JOIN Pizzas
+NATURAL JOIN PizzaTypes
+GROUP BY Name
+ORDER BY SUM(Quantity) DESC;
+```
+
+Results obtained: 
+
+<img width="341" alt="Screenshot 2022-12-22 at 12 36 45 AM" src="https://user-images.githubusercontent.com/79434994/208957225-c95c02f0-1f22-4995-8b31-650a6c608a98.png">
+
+This shows that on average, 204 of the most popular pizza, The Classic Deluxe Pizza, are sold per month whereas only 41 of the least popular pizza, The Brie Carre Pizza, are sold. That is a huge disparity of around 400%. 
 
