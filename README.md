@@ -259,4 +259,14 @@ NATURAL JOIN PizzaTypes
 GROUP BY Name
 ORDER BY SUM(Quantity*Price) DESC;
 ```
+Results Obtained: 
 
+<img width="324" alt="Screenshot 2022-12-22 at 1 23 33 AM" src="https://user-images.githubusercontent.com/79434994/208966392-3135f7cb-5e30-4e52-b43d-be6cf8b337ca.png">
+
+Based on the revenue contributon, The Thai Chicken Pizza came in first despite being only the 5th most popular pizza in terms of quantity sold and The Brie Carre Pizza remained at the bottom, contributing only $11588 out of the total revenue of $817858.
+
+Tableau was used to better visualise the revenue contribution of different products: 
+
+<img width="700" alt="Screenshot 2022-12-22 at 12 10 30 PM" src="https://user-images.githubusercontent.com/79434994/209053929-1596a6bd-5867-4baa-a69e-79db4de88081.png">
+
+The visualisation above split the products into different tiers based on their revenue contribution. This is useful in helping management identify which are the stronger/weaker products at one glance. 
