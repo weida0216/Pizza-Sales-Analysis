@@ -269,4 +269,4 @@ Tableau was used to better visualise the revenue contribution of different produ
 
 <img width="700" alt="Screenshot 2022-12-22 at 12 10 30 PM" src="https://user-images.githubusercontent.com/79434994/209053929-1596a6bd-5867-4baa-a69e-79db4de88081.png">
 
-The visualisation above split the products into different tiers based on their revenue contribution. This is useful in helping management identify which are the stronger/weaker products at one glance. 
+The visualisation above splits the products into different tiers based on their revenue contribution. This is useful in helping management identify which are the stronger/weaker products at one glance. 
