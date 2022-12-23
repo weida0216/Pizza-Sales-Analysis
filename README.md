@@ -274,4 +274,6 @@ The visualisation above categorises the products into different tiers based on t
 
 ## Interactive Dashboard
 
-<img width="1228" alt="Screenshot 2022-12-23 at 4 10 18 PM" src="https://user-images.githubusercontent.com/79434994/209298273-788a177d-5716-4e3a-928d-b7d87a7a6260.png">
+Below is a screenshot of an interactive dashboard I created to summarise the overall performance of the Pizza Restaurant in 2015. The link for the actual dashboard is: https://public.tableau.com/app/profile/wei.da1600/viz/Pizza-Restaurant-Analysis/Dashboard1
+
+<img width="1200" alt="Screenshot 2022-12-23 at 4 10 18 PM" src="https://user-images.githubusercontent.com/79434994/209298273-788a177d-5716-4e3a-928d-b7d87a7a6260.png">
