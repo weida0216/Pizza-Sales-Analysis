@@ -29,17 +29,16 @@ However, due to the narrow scope of the above query, limited business insights w
 To investigate if there are any trends of seasonality the below query was used: 
 
 ```
-SELECT COUNT(OrderID) as num_orders, MONTH(date) AS month
+SELECT MONTH(date) AS month, COUNT(OrderID) as num_orders
 FROM Orders
 GROUP BY MONTH(date)
 ORDER BY COUNT(OrderID) DESC;
 ```
 Results obtained: 
 
-<img width="115" alt="Result for number of orders per month" src="https://user-images.githubusercontent.com/79434994/208373424-c4f125ce-18aa-45c2-87f9-0caa7abdaeb5.png">
+<img width="117" alt="Screenshot 2022-12-23 at 7 11 08 PM" src="https://user-images.githubusercontent.com/79434994/209326083-980edf54-b021-402f-a5b7-2ee5db5f3e1f.png">
 
-
-I then did the same thing but this time, I was more interested in the revenue gained per month: 
+The same thing was done for revenue:
 
 ```
 SELECT MONTH(o.Date) AS Month, ROUND(SUM(p.Price * (od.Quantity)),0) as Revenue
@@ -55,14 +54,14 @@ Results obtained:
 
 <img width="100" alt="Result for revenue per month" src="https://user-images.githubusercontent.com/79434994/208374309-77221641-721a-482a-b381-faf98084b201.png">
 
-Next, I used Tableau to plot the below visualisations using the results above. 
+Next, I used Tableau to plot the visualisations below. 
 
 <img width="500" alt="Screenshot 2022-12-19 at 4 03 34 PM" src="https://user-images.githubusercontent.com/79434994/208376606-dd594ea1-9caa-4e0d-8676-378d80c4b24d.png">
 
 
 <img width="500" alt="Screenshot 2022-12-19 at 4 06 04 PM" src="https://user-images.githubusercontent.com/79434994/208376995-00e508c1-0f0b-4182-9b9f-52233e701f61.png">
 
-As seen from the above visualisations, the month of July generated both the highest amount of orders as well as the highest revenue in the year, and the month October generated the lowest for both. However, despite the disparity in sales throughout the year, the difference between the month with the highest amount of order/revenue and the month with the lowest is only less than 2% of the total order/revenue. Therefore, I can draw the conclusion that there is insignificant/weak seasonality throughout the year. 
+As seen from above, the month of July generated both the highest amount of orders as well as the highest revenue in the year, and the month October generated the lowest for both. However, despite the disparity in sales throughout the year, the difference between the 2 months was only less than 2% of the total order/revenue. Therefore, I can draw the conclusion that there is insignificant/weak seasonality throughout the year. 
 
 ### Weekly trend
 To investigate which particular day of the week generated the highest sales, the below query was used: 
@@ -103,8 +102,7 @@ To better identify possible trends, Tableau was used to plot the following visua
 
 <img width="500" alt="Screenshot 2022-12-20 at 4 16 21 PM" src="https://user-images.githubusercontent.com/79434994/208617085-975ae26d-8597-4aef-a841-c123aef2df82.png">
 
-As observed above, there are clear trends in consumption patterns throughout the week, with sales ramping up steadily from Sundays and peaking on Fridays. 
-The days of the week with the highest amount of sales are Thursday, Friday and Saturday. Therefore, the business can perhaps hold promotional events during those days as footflow would be the highest. Furthermore, more manpower should also be allocated on those days to ensure that staff are not overwhelmed. 
+As observed above, there are clear trends in consumption patterns throughout the week, with sales ramping up steadily from Sundays and peaking on Fridays. The days of the week with the highest amount of sales are Thursday, Friday and Saturday. Therefore, the business can perhaps hold promotional events during those days as footfall would be the highest. Furthermore, more manpower should also be allocated on those days to ensure that staff are not overwhelmed. 
 
 ### Peak hour identification
 To identify peak hours of the day, the following query was used: 
@@ -143,7 +141,7 @@ To better identify peak hours, Tableau was used to plot the following visualisat
 
 <img width="500" alt="Screenshot 2022-12-20 at 4 44 45 PM" src="https://user-images.githubusercontent.com/79434994/208622980-291d466b-279e-4247-8478-bb39202a793e.png">
 
-As observed above, there are two distinct cluster of peak hours, the lunch peak and the dinner peak. The lunch peak starts at around 12pm and ends at around 2pm whereas the dinner peak starts at around 4pm and 8pm. Identifying peak hours is important for a F&B business because it allows the business to properly staff and prepare for high levels of customer demand during those times. This can help ensure that customers receive efficient service and the business is able to maximize profits.
+As observed above, there are two distinct cluster of peak hours, the lunch peak and the dinner peak. The lunch peak starts at around 12pm and ends at around 2pm whereas the dinner peak starts at around 4pm and ends at 8pm. Identifying peak hours is important for a F&B business because it allows the business to properly staff and prepare for high levels of customer demand during those times. This can help ensure that customers receive efficient service and the business is able to maximize profits.
 
 ## Product Analysis
 
@@ -157,7 +155,7 @@ By understanding the patterns and preferences of customers when it comes to pizz
 
 ### Typical Order of Pizza
 
-Identifying how many pizzas customers typically order and what size of pizzas they typically order is important for a pizza business because it allows the business to understand the demand for their products and make informed decisions on pricing, inventory management, and marketing strategies. For example, if the business sees that customers typically order one large pizza per transaction, they may consider adjusting their pricing to reflect this demand and potentially increase their profit margins. On the other hand, if they see that customers typically order multiple small pizzas, they may consider offering discounts or promotions to encourage larger orders. Understanding these patterns can also inform the business's production and staffing needs, as they will have a better understanding of how many pizzas they need to prepare on a daily basis. Additionally, understanding the size of pizzas that are most popular can inform the business's menu planning decisions, as they can prioritize offering a range of sizes that meet customer demand.
+Identifying how many and what size of pizzas customers typically order is important for a pizza business because it allows the business to understand the demand of their products and make informed decisions on pricing, inventory management, and marketing strategies. For example, if the business sees that customers typically order one large pizza per transaction, they may consider adjusting their pricing to reflect this demand and potentially increase their profit margins. On the other hand, if they see that customers typically order multiple small pizzas, they may consider offering discounts or promotions to encourage larger orders. Understanding these patterns can also inform the business's production and staffing needs, as they will have a better understanding of how many pizzas they need to prepare on a daily basis. Additionally, understanding the size of pizzas that are most popular can inform the business's menu planning decisions, as they can prioritize offering a range of sizes that meet customer demand.
 
 The following query was used to investigate how many pizzas do a customer typically order:
 
@@ -189,7 +187,7 @@ CASE
   END AS TotalSize
 FROM OrderDetails) AS Sizing;
 ```
-In the query above, I identified the sizes of the pizzas from the suffix of the PizzaID and assigned a number to each category. I then found the average  of the all the sizes to attain the result below: 
+In the query above, I identified the sizes of the pizzas from the suffix of the PizzaID and assigned a number to each category. I then found the average  of all the sizes to attain the result below: 
 
 <img width="83" alt="Screenshot 2022-12-21 at 9 18 03 PM" src="https://user-images.githubusercontent.com/79434994/208914394-55e91fb2-1ab0-4945-95c7-0f03021d1f3a.png">
 
@@ -215,9 +213,9 @@ Results obtained:
 
 <img width="151" alt="Screenshot 2022-12-22 at 12 25 23 AM" src="https://user-images.githubusercontent.com/79434994/208954676-e5d5caf1-13f7-4753-b70b-bf62ae25f78f.png">
 
-Based on the result, it is clear that the most popular category of pizza is Classic and the least popular is Chicken. Hence with this information, the business can perhaps release more products other the Classic category. 
+Based on the result, it is clear that the most popular category of pizza is Classic and the least popular is Chicken. Hence with this information, the business can perhaps release more products under the Classic category. 
 
-After looking into the various categories of pizza, I will now into the popularity of each specific pizzas. The following query was written to rank the pizzas in terms of quantity sold over the year: 
+After looking into the various categories of pizza, I will now look into the popularity of the specific pizzas. The following query was written to rank the pizzas in terms of quantity sold over the year: 
 
 ```
 SELECT Name, SUM(Quantity) AS TotalQuantity
@@ -247,7 +245,7 @@ Results obtained:
 
 <img width="341" alt="Screenshot 2022-12-22 at 12 36 45 AM" src="https://user-images.githubusercontent.com/79434994/208957225-c95c02f0-1f22-4995-8b31-650a6c608a98.png">
 
-This shows that on average, 204 of the most popular pizza, The Classic Deluxe Pizza, were sold per month whereas only 41 of the least popular pizza, The Brie Carre Pizza, were sold. That is a huge disparity of around 400%. For reference, based on the data presented in the customer analysis section, the pizza restaurant sells on average 1780 total pizzas per month. This means that the most popular pizza would make up around 11.5% of total quantity sold and the least popular pizza would only make up 2.3%. 
+This shows that on average, 204 of the most popular pizza, The Classic Deluxe Pizza, were sold per month whereas only 41 of the least popular pizza, The Brie Carre Pizza, were sold. That is a huge disparity of around 400%. For reference, based on the data presented in the customer analysis section, the pizza restaurant sells on average 1780 total pizzas per month. This means that the most popular pizza makes up around 11.5% of total quantity sold whereas the least popular pizza only makes up 2.3%. 
 
 To confirm our findings, I performed the same investigation based on revenue. The query below ranks each pizza based on their contribution to total annual revenue: 
 
