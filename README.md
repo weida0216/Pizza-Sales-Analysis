@@ -270,3 +270,8 @@ Tableau was used to better visualise the revenue contribution of different produ
 <img width="334" alt="Screenshot 2022-12-23 at 4 05 40 PM" src="https://user-images.githubusercontent.com/79434994/209297571-7bc8f540-fe5b-4a0e-a508-04e00c6fabb0.png">
 
 The visualisation above categorises the products into different tiers based on their revenue contribution. This is useful in helping management identify which are the stronger/weaker products at one glance. 
+
+
+## Interactive Dashboard
+
+<img width="1255" alt="Screenshot 2022-12-23 at 4 09 09 PM" src="https://user-images.githubusercontent.com/79434994/209298103-10625b42-33bb-4b1a-a6e5-bbb87cde1034.png">
