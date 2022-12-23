@@ -19,7 +19,7 @@ FROM Orders
 GROUP BY date
 ORDER BY COUNT(OrderID) DESC;
 ```
-However, due to the narrow scope of the above query, limited business insights can be obtained from it. Therefore, I decided to disect my analysis into the following dimensions: 
+However, due to the narrow scope of the above query, limited business insights was obtained from it. Therefore, I decided to disect my analysis into the following dimensions: 
 
   1. Seasonality
   2. Weekly trend
