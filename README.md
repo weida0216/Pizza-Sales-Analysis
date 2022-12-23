@@ -267,6 +267,6 @@ Based on the revenue contributon, The Thai Chicken Pizza came in first despite b
 
 Tableau was used to better visualise the revenue contribution of different products: 
 
-<img width="339" alt="Screenshot 2022-12-23 at 4 04 03 PM" src="https://user-images.githubusercontent.com/79434994/209297340-455785e6-e9b7-4787-a4f4-d8a3e42bbd39.png">
+<img width="334" alt="Screenshot 2022-12-23 at 4 05 40 PM" src="https://user-images.githubusercontent.com/79434994/209297571-7bc8f540-fe5b-4a0e-a508-04e00c6fabb0.png">
 
 The visualisation above categorises the products into different tiers based on their revenue contribution. This is useful in helping management identify which are the stronger/weaker products at one glance. 
