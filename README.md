@@ -274,4 +274,4 @@ The visualisation above categorises the products into different tiers based on t
 
 ## Interactive Dashboard
 
-<img width="1255" alt="Screenshot 2022-12-23 at 4 09 09 PM" src="https://user-images.githubusercontent.com/79434994/209298103-10625b42-33bb-4b1a-a6e5-bbb87cde1034.png">
+<img width="1228" alt="Screenshot 2022-12-23 at 4 10 18 PM" src="https://user-images.githubusercontent.com/79434994/209298273-788a177d-5716-4e3a-928d-b7d87a7a6260.png">
